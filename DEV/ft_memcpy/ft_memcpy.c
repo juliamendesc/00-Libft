@@ -10,14 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
 /*According to the man this function copies n bytes from memory area src to
  * memory area dst. If dst and src overlap, behavior is undefined. Applications
  * in which dst and src might overlap should use ft_memmove instead. This
  * function returns the original value of dst.*/
 
-void	*ft_memcpy(void *dest, const void *src, size_t n);
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	/*We start by making three variable. The first one will be our counter that
 	 * we will be using to perform our loop and move through the index
@@ -35,17 +35,15 @@ void	*ft_memcpy(void *dest, const void *src, size_t n);
 	d = (char *)dest;
 	s = (char *)src;
 	i = 0;
-
 	/*So long as our counter i is smaller than the given size_t n we want our
 	 * loop to continue since we are copying n bytes from memory area src to
 	 * memory area dst. Inside our loop we place index position i of s (which
 	 * currently holds src) into index position i of d (which currently holds
 	 * memory area dst). We increment our i and continue the loop until i is no
 	 * longer smaller than n. We then return dst.*/
-
-	while (i > n)
+	while (i < n)
 	{
-		*d[i] = *[i];
+		d[i] = s[i];
 		i++;
 	}
 	return (dest);

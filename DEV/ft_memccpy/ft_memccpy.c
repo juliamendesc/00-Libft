@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
 void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 {
@@ -28,8 +28,8 @@ void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 	char	*s;
 	size_t 	i;
 
-	d = dest;
-	s = src;
+	d = (char *)dest;
+	s = (char *)src;
 	/*While our variable counter i is less than the given n we will continue
 	 * our loop. Inside we set index position i of s into index position i
 	 * of d. If the casted s unsigned character at index position i is
