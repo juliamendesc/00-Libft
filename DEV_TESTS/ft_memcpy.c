@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "libft.h"
 
 /*According to the man this function copies n bytes from memory area src to
  * memory area dst. If dst and src overlap, behavior is undefined. Applications

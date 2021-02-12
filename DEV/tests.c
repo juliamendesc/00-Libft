@@ -50,16 +50,16 @@ void	memcpy_main(void)
 	char b[20] = "!dlroW olleH";
 	char c[20] = "Hello World!";
 	char d[20] = "!dlroW olleH";
-	char e[2] = "";
-	char f[2] = "";
+	//char e[2] = "";
+	//char f[2] = "";
 
 	if ((strcmp(memcpy(a, b, 6), ft_memcpy(c, d, 6))) == 0)
 	{
-		if ((strcmp(memcpy(e, b, 6), ft_memcpy(f, d, 6))) == 0)
-		{
+		//if ((strcmp(memcpy(e, b, 6), ft_memcpy(f, d, 6))) == 0)
+		//{
 			printf("OKAY! =D\n");
 			return;
-		}
+		//}
 	}
 	printf("FAILED!\n");
 }
@@ -75,7 +75,7 @@ void	memccpy_main(void)
 	char f[20] = "Hello World!";
 	char g[20] = "Hello World!";
 
-	char h[2] = "";
+	//char h[2] = "";
 	char i[2] = "";
 	char j[2] = "";
 
@@ -91,8 +91,8 @@ void	memccpy_main(void)
 			ft_memccpy(g, b, 'o', 6);
 			if ((strcmp(f, g)) == 0)
 			{
-				memccpy(i, h, 'a', 6);
-				ft_memccpy(j, h, 'a', 6);
+				//memccpy(i, h, 'a', 6);
+				//ft_memccpy(j, h, 'a', 6);
 				if ((strcmp(i, j)) == 0)
 				{
 					printf("OKAY! =D\n");
@@ -102,6 +102,52 @@ void	memccpy_main(void)
 		}
 	}
 	printf("FAILED!\n");
+}
+
+void	memmove_main(void)
+{
+	char target[21] = "a shiny white sphere";
+
+	char * p = target + 8;  /* p points at the starting character
+                          of the word we want to replace */
+	char * source = target + 2; /* start of "shiny" */
+
+	if (strcmp(memmove(p, source, 5), ft_memmove(p, source, 5)) == 0)
+	{
+		printf( "OKAY! =D\n" );
+		return;
+	}
+	printf("FAILED!\n");
+}
+
+void	memchr_main(void)
+{
+	int  ch = 'r';
+//	char str[] =    "lazy";
+	char string[] = "The quick brown dog jumps over the lazy fox";
+
+	if (strcmp(memchr(string, ch, strlen(string)), ft_memchr(string, ch, strlen(string))) == 0)
+	{
+		printf( "OKAY! =D\n" );
+		return;
+	}
+	printf("FAILED!\n");
+}
+
+void	memcmp_main(void)
+{
+	char first[30]  = "12345678901234567890";
+	char second[30] = "12345678901234567891";
+	//int int_arr1[] = {1,2,3,4};
+	//int int_arr2[] = {1,2,3,4};
+
+	if (memcmp(first, second, 19) == ft_memcmp(first, second, 19))
+	{
+		printf( "OKAY! =D\n" );
+		return;
+	}
+	printf("FAILED!\n");
+    //result = memcmp( int_arr1, int_arr2, sizeof(int) * 2 );
 }
 
 int	main(void)
@@ -117,5 +163,14 @@ int	main(void)
 
 	printf("Test de memccpy :\n");
 	memccpy_main();
+
+	printf("Test de memmove :\n");
+	memmove_main();
+
+	printf("Test de memchr :\n");
+	memchr_main();
+
+	printf("Test de memcmp :\n");
+	memcmp_main();
 	return (0);
 }
