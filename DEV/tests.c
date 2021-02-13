@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include <string.h>
+#include <stdio.h>
 #include "libft.h"
 
 void	bzero_main(void)
@@ -106,16 +106,36 @@ void	memccpy_main(void)
 
 void	memmove_main(void)
 {
-	char target[21] = "a shiny white sphere";
+/* 	char target[21] = "a shiny white sphere";
 
-	char * p = target + 8;  /* p points at the starting character
+	char * p = target + 8;  p points at the starting character
                           of the word we want to replace */
-	char * source = target + 2; /* start of "shiny" */
+	/*char * source = target + 2; start of "shiny" */
 
-	if (strcmp(memmove(p, source, 5), ft_memmove(p, source, 5)) == 0)
+	/*if (strcmp(memmove(p, source, 5), ft_memmove(p, source, 5)) == 0)
 	{
 		printf( "OKAY! =D\n" );
 		return;
+	}
+	printf("FAILED!\n"); */
+
+	char b[20] = "Hello World!";
+	char a[20] = "Smile";
+	char d[20] = "Hello World!";
+	char c[20] = "Smile";
+
+	char i[20] = "Hello World!";
+	char e[20] = "Smile";
+	char f[20] = "Hello World!";
+	char g[20] = "Smile";
+
+	if ((strcmp(memmove(a, b, 8), ft_memmove(c, d, 8))) == 0)
+	{
+		if ((strcmp(memmove(i, e, 8), ft_memmove(f, g, 8))) == 0)
+		{
+			printf("OKAY! =D\n");
+			return;
+		}
 	}
 	printf("FAILED!\n");
 }
@@ -150,6 +170,98 @@ void	memcmp_main(void)
     //result = memcmp( int_arr1, int_arr2, sizeof(int) * 2 );
 }
 
+void	strlen_main(void)
+{
+	char	a[12]="Hello World";
+	char	b[6]="Smile!";
+	char	c[2]="";
+
+
+	if (ft_strlen(a) == strlen(a))
+	{
+		if (ft_strlen(b) == strlen(b))
+		{
+			if (ft_strlen(c) == strlen(c))
+			{
+				printf("OKAY! =D\n");
+				return;
+			}
+		}
+	}
+	printf("FAILED!\n");
+}
+
+/* void	strlcpy_main(void)
+{
+	char	a[8]="Hello ";
+	char	b[8]="W0rld!";
+	char	c[8]="Hello ";
+	char	d[2]="";
+	char	e[2]="";
+	char	f[2]="";
+	char	g[2]="";
+	char	h[2]="";
+
+	if (strlcpy(a, b, 6) == ft_strlcpy(c, b, 6))
+	{
+		if (strlcpy(f, h, 3) == ft_strlcpy(g, h, 3))
+		{
+			if (strlcpy(d, b, 15) == ft_strlcpy(e, b, 15))
+			{
+				printf("OKAY! =D\n");
+				return;
+			}
+		}
+	}
+	printf("FAILED!\n");
+} */
+
+/* void	strlcat_main(void)
+{
+	char	a[8]="Hello ";
+	char	b[8]="W0rld!";
+	char	c[8]="Hello ";
+	char	d[2]="";
+	char	e[2]="";
+	char	f[2]="";
+	char	g[2]="";
+	char	h[2]="";
+
+	if (strlcat(a, b, 6) == ft_strlcat(c, b, 6))
+	{
+		if (strlcat(f, h, 3) == ft_strlcat(g, h, 3))
+		{
+			if (strlcat(d, b, 15) == ft_strlcat(e, b, 15))
+			{
+				printf("OKAY! =D\n");
+				return;
+			}
+		}
+	}
+	printf("FAILED!\n");
+} */
+
+void	strchr_main(void)
+{
+	char a[20] = "Hello World!";
+
+	if ((strcmp(strchr(a, 'e'), ft_strchr(a, 'e'))) == 0)
+	{
+		if (strchr(a, 'w') == ft_strchr(a, 'w'))
+		{
+			if ((strcmp(strchr(a, 'W'), ft_strchr(a, 'W'))) == 0)
+			{
+				if (strchr(a, '1') == ft_strchr(a, '1'))
+				{
+					printf("OKAY! =D\n");
+					return;
+				}
+			}
+		}
+	}
+	printf("FAILED!\n");
+}
+
 int	main(void)
 {
 	printf("Test de ft_memset :\n");
@@ -172,5 +284,18 @@ int	main(void)
 
 	printf("Test de memcmp :\n");
 	memcmp_main();
+
+	printf("Test de strlen :\n");
+	strlen_main();
+
+/* 	printf("Test de strlcpy :\n");
+	strlcpy_main(); */
+
+/* 	printf("Test de strlcat :\n");
+	strlcat_main(); */
+
+	printf("Test de strchr :\n");
+	strchr_main();
+
 	return (0);
 }
