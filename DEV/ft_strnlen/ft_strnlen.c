@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strnlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julcarva <julcarva@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/13 17:04:42 by julcarva          #+#    #+#             */
-/*   Updated: 2021/02/15 17:34:26 by julcarva         ###   ########.fr       */
+/*   Created: 2021/02/15 18:32:51 by julcarva          #+#    #+#             */
+/*   Updated: 2021/02/15 18:35:31 by julcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-size_t ft_strlcpy(char *dest, const char *src, size_t size)
+size_t	ft_strnlen(const char *s, size_t maxlen)
 {
-	size_t srclen;
+	size_t len;
 
-	srclen = ft_strlen(src);
-	if (srclen + 1 < size)
-		ft_memcpy(dest, src, srclen + 1);
-	else if (size != 0)
-	{
-		ft_memcpy(dest, src, size - 1);
-		dest[size - 1] = '\0';
+	for (len = 0; len < maxlen; len++, s++) {
+		if (!*s)
+			break;
 	}
-	return (srclen);
+	return (len);
 }

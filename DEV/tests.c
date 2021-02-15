@@ -191,9 +191,19 @@ void	strlen_main(void)
 	printf("FAILED!\n");
 }
 
-/* void	strlcpy_main(void)
+ void	strlcpy_main(void)
 {
-	char	a[8]="Hello ";
+	char str1[] = "ABCDEFG";
+    char str2[] = "ABCDEFG";
+    char str3[] = "0123";
+
+    printf("\n The Dest before the ft_strlcpy is: %s \n", str1);
+    printf("\n The Src is: %s \n", str3);
+    printf("\n The returned value is: %zu \n", ft_strlcpy (str1, str3, 4));
+    printf("\n It should be: %zu \n", strlcpy (str2, str3, 4));
+    printf("\n The Dest After the ft_strlcpy is: %s \n", str1);
+    printf("\n It should be: %s \n\n", str2);
+	/*char	a[8]="Hello ";
 	char	b[8]="W0rld!";
 	char	c[8]="Hello ";
 	char	d[2]="";
@@ -213,12 +223,23 @@ void	strlen_main(void)
 			}
 		}
 	}
-	printf("FAILED!\n");
-} */
+	printf("FAILED!\n");*/
+}
 
-/* void	strlcat_main(void)
+void	strlcat_main(void)
 {
-	char	a[8]="Hello ";
+
+	char str1[50] = "ABC";
+    char str2[50] = "ABC";
+    char str3[] = "0123";
+
+	printf("\n The Dest before the ft_strlcat is: %s \n", str1);
+    printf("\n The Src is: %s \n", str3);
+    printf("\n The returned value is: %zu \n", ft_strlcat (str1, str3, 5));
+    printf("\n It should be: %zu \n", strlcat (str2, str3, 5));
+    printf("\n The Dest After the ft_strlcat is: %s \n", str1);
+    printf("\n It should be: %s \n\n", str2);
+	/*char	a[8]="Hello ";
 	char	b[8]="W0rld!";
 	char	c[8]="Hello ";
 	char	d[2]="";
@@ -238,8 +259,8 @@ void	strlen_main(void)
 			}
 		}
 	}
-	printf("FAILED!\n");
-} */
+	printf("FAILED!\n");*/
+}
 
 void	strchr_main(void)
 {
@@ -252,6 +273,28 @@ void	strchr_main(void)
 			if ((strcmp(strchr(a, 'W'), ft_strchr(a, 'W'))) == 0)
 			{
 				if (strchr(a, '1') == ft_strchr(a, '1'))
+				{
+					printf("OKAY! =D\n");
+					return;
+				}
+			}
+		}
+	}
+	printf("FAILED!\n");
+}
+
+void	strrchr_main(void)
+{
+	char	buf[] = "abcdedcba";
+	char	buf2[] = "abcd";
+
+	if (strrchr(buf, 'a') == ft_strrchr(buf, 'a'))
+	{
+		if (strrchr(buf, 0) == ft_strrchr(buf, 0))
+		{
+			if (ft_strrchr(buf, 'z') == 0)
+			{
+				if (ft_strrchr(buf2, 'a') == buf2)
 				{
 					printf("OKAY! =D\n");
 					return;
@@ -288,14 +331,17 @@ int	main(void)
 	printf("Test de strlen :\n");
 	strlen_main();
 
-/* 	printf("Test de strlcpy :\n");
-	strlcpy_main(); */
+ 	printf("Test de strlcpy :\n");
+	strlcpy_main();
 
-/* 	printf("Test de strlcat :\n");
-	strlcat_main(); */
+	printf("Test de strlcat :\n");
+	strlcat_main();
 
 	printf("Test de strchr :\n");
 	strchr_main();
+
+	printf("Test de strrchr :\n");
+	strrchr_main();
 
 	return (0);
 }

@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julcarva <julcarva@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/13 17:04:42 by julcarva          #+#    #+#             */
-/*   Updated: 2021/02/15 17:34:26 by julcarva         ###   ########.fr       */
+/*   Created: 2021/02/15 19:28:25 by julcarva          #+#    #+#             */
+/*   Updated: 2021/02/15 19:48:19 by julcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-size_t ft_strlcpy(char *dest, const char *src, size_t size)
+char	*strrchr(const char *s, int c)
 {
-	size_t srclen;
+/*The C library function char *strrchr(const char *str, int c) searches for the
+last occurrence of the character c (an unsigned char) in the string pointed to,
+by the argument str.*/
+	int	i;
 
-	srclen = ft_strlen(src);
-	if (srclen + 1 < size)
-		ft_memcpy(dest, src, srclen + 1);
-	else if (size != 0)
+	i = ft_strlen(s);
+	if (c == 0)
+		return ((char *)s + i);
+	while (i > 0)
 	{
-		ft_memcpy(dest, src, size - 1);
-		dest[size - 1] = '\0';
+		if (s[i] == c)
+			return ((char *)s + i);
+		i--;
 	}
-	return (srclen);
+	return (NULL);
 }
