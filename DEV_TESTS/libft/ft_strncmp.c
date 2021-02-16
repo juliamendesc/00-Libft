@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julcarva <julcarva@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/16 20:47:28 by julcarva          #+#    #+#             */
-/*   Updated: 2021/02/16 20:47:28 by julcarva         ###   ########.fr       */
+/*   Created: 2021/02/16 21:46:36 by julcarva          #+#    #+#             */
+/*   Updated: 2021/02/16 21:46:36 by julcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 /*
- * Find the first occurrence of find in s, where the search is limited to the
- * first slen characters of s.
+ The C library function int strncmp(const char *str1, const char *str2,
+ size_t n) compares at most the first n bytes of str1 and str2.
  */
-
-char *ft_strnstr(const char *s, const char *find, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t	i;
-	size_t	j;
-
-	i = 0;
-	if (*find == '\0')
-		return ((char *)s);
-	while (i < n && s[i] != '\0')
+	if (n == 0)
+		return (0);
+	while(n != 0)
 	{
-		j = 0;
-		while (i + j < n && s[i + j] == find[j] && find[j] != '\0')
-			j++;
-		if (find[j] == '\0')
-			return ((char *)s + i);
-		i++;
+		if (*s1 != *s2++)
+			return (*(unsigned char *)s1 - *(unsigned char *)--s2);
+		if (*s1++ == 0)
+			break;
+		n--;
 	}
-	return (NULL);
+	return (0);
 }
