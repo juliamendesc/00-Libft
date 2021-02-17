@@ -44,5 +44,6 @@ int		ft_tolower(int c);
 void	*ft_calloc(size_t nelem, size_t elsize);
 void	*ft_malloc(size_t size);
 char	*ft_strdup(const char *s);
-
+char	*ft_substr(char const *s, unsigned int start,
+	size_t len);
 #endif
