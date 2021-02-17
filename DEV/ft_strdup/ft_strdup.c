@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julcarva <julcarva@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/16 23:23:50 by julcarva          #+#    #+#             */
-/*   Updated: 2021/02/16 23:23:50 by julcarva         ###   ########.fr       */
+/*   Created: 2021/02/17 00:30:18 by julcarva          #+#    #+#             */
+/*   Updated: 2021/02/17 00:30:18 by julcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-int	ft_isdigit(int c)
+/*
+The function strdup() is used to duplicate a string.
+It returns a pointer to null-terminated byte string.
+*/
+char	*ft_strdup(const char *s)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
+	size_t len;
+	char *copy;
+
+	len = strlen(s) + 1;
+	if (!(copy = malloc((unsigned int)len)))
+		return (NULL);
+	memcpy(copy, s, len);
+	return (copy);
 }
