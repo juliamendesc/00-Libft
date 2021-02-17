@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julcarva <julcarva@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: julcarva <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/16 23:19:06 by julcarva          #+#    #+#             */
-/*   Updated: 2021/02/16 23:19:06 by julcarva         ###   ########.fr       */
+/*   Created: 2021/02/17 15:34:06 by julcarva          #+#    #+#             */
+/*   Updated: 2021/02/17 15:34:33 by julcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 int	ft_isalpha(int c)
 {
 	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-		return(1);
+		return (1);
 	return (0);
 }

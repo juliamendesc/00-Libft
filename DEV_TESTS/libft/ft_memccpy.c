@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julcarva <julcarva@student.42.fr>          +#+  +:+       +#+        */
+/*   By: julcarva <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/11 18:29:16 by julcarva          #+#    #+#             */
-/*   Updated: 2021/02/11 18:29:16 by julcarva         ###   ########.fr       */
+/*   Created: 2021/02/17 14:59:12 by julcarva          #+#    #+#             */
+/*   Updated: 2021/02/17 14:59:55 by julcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 {
 	char	*d;
 	char	*s;
-	size_t 	i;
+	size_t	i;
 
 	d = (char *)dest;
 	s = (char *)src;

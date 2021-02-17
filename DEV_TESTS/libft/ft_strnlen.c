@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julcarva <julcarva@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: julcarva <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/15 18:32:51 by julcarva          #+#    #+#             */
-/*   Updated: 2021/02/16 19:18:11 by julcarva         ###   ########.fr       */
+/*   Created: 2021/02/17 13:35:59 by julcarva          #+#    #+#             */
+/*   Updated: 2021/02/17 15:01:01 by julcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,13 @@ size_t	ft_strnlen(const char *s, size_t maxlen)
 {
 	size_t len;
 
-	for (len = 0; len < maxlen; len++, s++) {
+	len = 0;
+	while (len < maxlen)
+	{
 		if (!*s)
-			break;
+			break ;
+		len++;
+		s++;
 	}
 	return (len);
 }

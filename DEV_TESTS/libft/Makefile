@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: julcarva <julcarva@student.42lisboa.com    +#+  +:+       +#+         #
+#    By: julcarva <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/02/12 17:02:37 by julcarva          #+#    #+#              #
-#    Updated: 2021/02/17 00:33:27 by julcarva         ###   ########.fr        #
+#    Created: 2021/02/17 13:44:20 by julcarva          #+#    #+#              #
+#    Updated: 2021/02/17 16:16:31 by julcarva         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,6 @@ SRCS	=	ft_memset.c \
 			ft_toupper.c \
 			ft_tolower.c \
 			ft_calloc.c \
-			ft_malloc.c \
 			ft_strdup.c
 
 OBJS	=	${SRCS:.c=.o}
@@ -52,9 +51,9 @@ CFLAGS	=	-Wall -Wextra -Werror
 
 ${NAME}:	${OBJS}
 				ar rc ${NAME} ${OBJS}
-				@echo "$(NAME) created"
+				@echo "${NAME} created"
 				ranlib ${NAME}
-				@echo "$(NAME) indexed"
+				@echo "${NAME} indexed"
 
 all:		${NAME}
 
@@ -64,7 +63,7 @@ clean:
 
 fclean:		clean
 			${RM} ${NAME}
-			@echo "$(NAME) deleted"
+			@echo "${NAME} deleted"
 
 re:			fclean all
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julcarva <julcarva@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: julcarva <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/15 19:28:25 by julcarva          #+#    #+#             */
-/*   Updated: 2021/02/16 22:58:13 by julcarva         ###   ########.fr       */
+/*   Created: 2021/02/17 13:36:27 by julcarva          #+#    #+#             */
+/*   Updated: 2021/02/17 14:47:36 by julcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
- 	int	i;
+	int		i;
 	char	a;
 
 	a = c;

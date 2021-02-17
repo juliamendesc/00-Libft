@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julcarva <julcarva@student.42.fr>          +#+  +:+       +#+        */
+/*   By: julcarva <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/08 19:36:24 by julcarva          #+#    #+#             */
-/*   Updated: 2021/01/08 19:36:24 by julcarva         ###   ########.fr       */
+/*   Created: 2021/02/17 14:57:44 by julcarva          #+#    #+#             */
+/*   Updated: 2021/02/17 14:58:46 by julcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-    char *ptr;
+	char *ptr;
 
-    ptr = (char *)s;
-    while (n > 0)
-    {
-        ptr[n - 1] = c;
-        n--;
-    }
-    return (s);
+	ptr = (char *)s;
+	while (n > 0)
+	{
+		ptr[n - 1] = c;
+		n--;
+	}
+	return (s);
 }

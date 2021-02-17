@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julcarva <julcarva@student.42.fr>          +#+  +:+       +#+        */
+/*   By: julcarva <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/08 19:22:11 by julcarva          #+#    #+#             */
-/*   Updated: 2021/01/08 19:22:11 by julcarva         ###   ########.fr       */
+/*   Created: 2021/02/17 14:41:56 by julcarva          #+#    #+#             */
+/*   Updated: 2021/02/17 16:15:36 by julcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 # define LIBFT_H
 
 # include <stdlib.h>
-# include <stdio.h>
+// # include <stdio.h>
 # include <unistd.h>
-# include <string.h>
+// # include <string.h>
 
 void	*ft_memset(void *s, int c, size_t n);
 void	ft_bzero(void *s, size_t n);
-void 	*ft_memcpy(void *dest, const void *src, size_t n);
+void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memccpy(void *dest, const void *src, int c, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
@@ -42,7 +42,6 @@ int		ft_isprint(int c);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 void	*ft_calloc(size_t nelem, size_t elsize);
-void	*ft_malloc(size_t size);
 char	*ft_strdup(const char *s);
 
 #endif
