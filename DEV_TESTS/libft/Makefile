@@ -6,7 +6,7 @@
 #    By: julcarva <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/17 13:44:20 by julcarva          #+#    #+#              #
-#    Updated: 2021/02/17 20:08:29 by julcarva         ###   ########.fr        #
+#    Updated: 2021/02/18 19:37:40 by julcarva         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,9 +39,14 @@ SRCS	=	ft_memset.c \
 			ft_strndup.c \
 			ft_substr.c \
 			ft_strjoin.c \
-			ft_strtrim.c
+			ft_strtrim.c \
+			ft_split.c \
+			ft_itoa.c \
+			ft_strcpy.c
 
 OBJS	=	${SRCS:.c=.o}
+
+ASAN_FLAGS = -fsanitize=address -fno-omit-frame-pointer
 
 NAME	=	libft.a
 
@@ -51,7 +56,7 @@ RM		=	rm -f
 
 CFLAGS	=	-Wall -Wextra -Werror
 
-.c.o:		#{CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+.c.o:		#{CC} ${ASAN_FLAGS} ${CFLAGS}-c $< -o ${<:.c=.o}
 
 ${NAME}:	${OBJS}
 				ar rc ${NAME} ${OBJS}

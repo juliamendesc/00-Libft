@@ -27,6 +27,42 @@ void	*ft_calloc(size_t nelem, size_t elsize)
 
 	if (nelem == 0 || elsize == 0)
 		nelem = elsize = 1;
-	ptr = ft_malloc(nelem * elsize);
+	ptr = malloc(nelem * elsize);
 	return (ptr);
+}
+int main()
+{
+    size_t *p;
+    size_t *k;
+    int i;
+
+    i = 0;
+    p = ft_calloc(5, sizeof(int));
+    k = malloc(5 * sizeof(int));
+
+    while (i < 3)
+    {
+        p[i] = 3;
+        k[i] = 3;
+        i++;
+    }
+
+    i = 0;
+    while (i < 5)
+    {
+        printf("k[%d] = %zu\n",i, k[i]);
+        i++;
+    }
+    printf("\n");
+    i = 0;
+    while (i < 5)
+    {
+        printf("p[%d] = %zu\n",i, p[i]);
+        i++;
+    }
+
+    free(k);
+    free(p);
+
+    return (1);
 }

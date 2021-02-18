@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julcarva <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/17 20:29:42 by julcarva          #+#    #+#             */
-/*   Updated: 2021/02/18 15:55:49 by julcarva         ###   ########.fr       */
+/*   Created: 2021/02/18 18:33:20 by julcarva          #+#    #+#             */
+/*   Updated: 2021/02/18 19:32:34 by julcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
-{
-	size_t	start;
-	size_t	end;
+// transforms integer to string
 
-	if (!s1 || !set)
+char	*ft_itoa(int n)
+{
+	char	*str;
+
+	if (!(str = (char *)malloc(sizeof(char) * 2))) // numero + '\0
 		return (NULL);
-	start = 0;
-	end = ft_strlen(s1) - 1;
-	while (start <= end && ft_strchr(set, s1[start]))
-		start++;
-	while (end && ft_strchr(set, s1[end]))
-		end--;
-	return (ft_substr(s1, start, end - start + 1));
+	if (n == -2147483648)
+		return (ft_strjoin(str, "-2147483648"));
+	if (n < 0)
+	{
+		str[0] = '-';
+		str[1] = '\0';
+		str = ft_strjoin(str, ft_itoa(-n));
+	} else if (n >= 10) {
+		str = ft_strjoin(ft_itoa(n / 10), ft_itoa(n % 10));
+	} else if (n < 10 && n >= 0) {
+		str[0] = n + '0';
+		str[1] = '\0';
+	}
+	return (str);
 }
