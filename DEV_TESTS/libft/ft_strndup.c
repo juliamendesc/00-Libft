@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julcarva <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: julcarva <julcarva@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 18:04:53 by julcarva          #+#    #+#             */
-/*   Updated: 2021/02/17 18:04:54 by julcarva         ###   ########.fr       */
+/*   Updated: 2021/02/19 18:08:23 by julcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,11 @@
 
 char	*ft_strndup(const char *str, size_t n)
 {
-	size_t len;
 	char *copy;
 
-	len = 0;
-	while ((len < n) && str[len])
-	{
-		len++;
-	}
-	if ((copy = malloc(len + 1)) == NULL)
+	if (!(copy = (char *)malloc(sizeof(char) * (n + 1))))
 		return (NULL);
-	ft_memcpy(copy, str, len);
-	copy[len] = '\0';
+	ft_strncpy(copy, str, n);
+	copy[n] = '\0';
 	return (copy);
 }

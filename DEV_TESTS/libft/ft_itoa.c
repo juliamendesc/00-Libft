@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julcarva <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: julcarva <julcarva@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 18:33:20 by julcarva          #+#    #+#             */
-/*   Updated: 2021/02/18 19:28:02 by julcarva         ###   ########.fr       */
+/*   Updated: 2021/02/19 21:06:24 by julcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,53 @@
 
 // transforms integer to string
 
-char	*ft_itoa(int n)
+static int	ft_digit_count(long int i)
 {
-	char	*str;
+	int	count;
 
-	if (!(str = (char *)malloc(sizeof(char) * 2))) // numero + '\0
-		return (NULL);
-	if (n == -2147483648)
-		return (ft_strjoin(str, "-2147483648"));
-	if (n < 0)
+	count = 0;
+	if (i < 0)
+	{
+		i *= -1;
+		count++;
+	}
+	while (i > 0)
+	{
+		i /= 10;
+		count++;
+	}
+	return (count);
+}
+
+char		*ft_itoa(int n)
+{
+	char		*str;
+	int			i;
+	long int	nb;
+
+	nb = n;
+	i = ft_digit_count(nb);
+	if (!(str = malloc(i * sizeof(char) + 1)))
+	{
+		free(str);
+		return (0);
+	}
+
+	str[i--] = 0;
+	if (nb == 0)
+	{
+		str = ft_calloc(2, sizeof(char));
+		str[0] = 48;
+	}
+	if (nb < 0)
 	{
 		str[0] = '-';
-		str[1] = '\0';
-		str = ft_strjoin(str, ft_itoa(-n));
-	} else if (n >= 10) {
-		str = ft_strjoin(ft_itoa(n / 10), ft_itoa(n % 10));
-	} else if (n < 10 && n >= 0) {
-		str[0] = n + '0';
-		str[1] = '\0';
+		nb = nb * -1;
+	}
+	while (nb > 0)
+	{
+		str[i--] = nb % 10 + '0';
+		nb = nb / 10;
 	}
 	return (str);
 }
