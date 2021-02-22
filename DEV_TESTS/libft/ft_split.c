@@ -6,7 +6,7 @@
 /*   By: julcarva <julcarva@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 15:00:22 by julcarva          #+#    #+#             */
-/*   Updated: 2021/02/19 21:00:14 by julcarva         ###   ########.fr       */
+/*   Updated: 2021/02/22 11:21:28 by julcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 * First, we count how many divisions there are between strings
 */
 
-static int	ft_div_counter(char const *s, char c)
+static int ft_div_counter(char const *s, char c)
 {
 	int i;
 	int counter;
@@ -39,20 +39,20 @@ static int	ft_div_counter(char const *s, char c)
 * A string is created considering the length between separators.
 */
 
-static char	*ft_segmentator(char const *s, char c, int i)
+static char *ft_segmentator(char const *s, char c, int i)
 {
-	int		j;
-	int		k;
-	char	*seg_string;
+	int j;
+	int k;
+	char *seg_string;
 
 	j = i;
 	while (s[i] && s[i] != c)
 		i++;
 	if (!(seg_string = (char *)malloc(sizeof(char) * ((i - j) + 1))))
-		{
-			free(seg_string);
-			return (NULL);
-		}
+	{
+		free(seg_string);
+		return (NULL);
+	}
 	k = 0;
 	while (j != i)
 	{
@@ -71,11 +71,11 @@ static char	*ft_segmentator(char const *s, char c, int i)
 * number of divisions.
 */
 
-char	**ft_split(char const *s, char c)
+char **ft_split(char const *s, char c)
 {
-	char	**tab;
-	int		i;
-	int		j;
+	char **tab;
+	int i;
+	int j;
 
 	if (!s)
 		return (NULL);
