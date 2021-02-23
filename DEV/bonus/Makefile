@@ -5,16 +5,16 @@
 #                                                     +:+ +:+         +:+      #
 #    By: julcarva <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/02/17 13:44:20 by julcarva          #+#    #+#              #
-#    Updated: 2021/02/23 19:47:59 by julcarva         ###   ########.fr        #
+#    Created: 2021/02/12 17:02:37 by julcarva          #+#    #+#              #
+#    Updated: 2021/02/23 19:17:24 by julcarva         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	libft.a
+NAME = libft.a
 
 HEADER	= libft.h
 
-CFLAGS	=	-Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 OBJS = $(SRCS:%.c=$(DIR_OBJS)%.o)
 
@@ -33,22 +33,18 @@ SRCS	=	ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memchr.c \
 			ft_split.c ft_itoa.c ft_strcpy_bonus.c ft_strncpy.c ft_strmapi.c \
 			ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
 
-SRCS_BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
-			 ft_putnbr_bonus.c ft_memdel_bonus.c ft_putstr_bonus.c \
-			 ft_putchar_bonus.c
-			#  \
-			ft_lstdelone.c ft_lstclear.c ft_lstiter.c \
-			ft_lstmap.c \#
+SRCS_BONUS = ft_lstnew.c \
+			\
+			ft_putchar_bonus.c ft_putstr_bonus.c ft_putnbr_bonus.c \
+			ft_memdel_bonus.c
 
-all:		$(NAME)
+all: $(NAME)
 
-$(NAME):	$(OBJS)
-		$(AR) $(NAME) $(OBJS)
-		@echo "$(NAME) created and indexed"
+$(NAME): $(OBJS)
+	$(AR) $(NAME) $(OBJS)
 
 bonus: $(OBJS) $(OBJS_BONUS)
 	$(AR) $(NAME) $(OBJS) $(OBJS_BONUS)
-	@echo "$(NAME) and BONUS created and indexed"
 
 $(DIR_OBJS)%.o: %.c
 	gcc $(CFLAGS) -include $(HEADER) -c $< -o $@
@@ -56,18 +52,16 @@ $(DIR_OBJS)%.o: %.c
 $(OBJS):	| $(DIR_OBJS)
 $(OBJS_BONUS):	| $(DIR_OBJS)
 $(DIR_OBJS):
-			mkdir $(DIR_OBJS)
+	mkdir $(DIR_OBJS)
 
 clean:
-			rm -rf $(DIR_OBJS)
-			@echo "##### Removed lib object files #####"
+	rm -rf $(DIR_OBJS)
 
-fclean:		clean
-			rm -f $(NAME)
-			@echo "##### Removed $(NAME) #####"
+fclean: clean
+	rm -f $(NAME)
 
-re:			fclean all
+re: fclean all
 
-rebonus:	fclean bonus
+rebonus: fclean bonus
 
 .PHONY:		all clean fclean re bonus rebonus

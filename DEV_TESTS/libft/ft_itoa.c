@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julcarva <julcarva@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: julcarva <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 18:33:20 by julcarva          #+#    #+#             */
-/*   Updated: 2021/02/19 21:06:24 by julcarva         ###   ########.fr       */
+/*   Updated: 2021/02/23 16:42:42 by julcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-// transforms integer to string
 
 static int	ft_digit_count(long int i)
 {
@@ -22,9 +20,8 @@ static int	ft_digit_count(long int i)
 	if (i < 0)
 	{
 		i *= -1;
-		count++;
 	}
-	while (i > 0)
+	while (i != 0)
 	{
 		i /= 10;
 		count++;
@@ -35,32 +32,28 @@ static int	ft_digit_count(long int i)
 char		*ft_itoa(int n)
 {
 	char		*str;
+	int			count;
 	int			i;
 	long int	nb;
 
 	nb = n;
-	i = ft_digit_count(nb);
-	if (!(str = malloc(i * sizeof(char) + 1)))
-	{
-		free(str);
+	count = ft_digit_count(nb);
+	i = 0;
+	if (nb < 0 || count == 0)
+		count++;
+	if (!(str = ft_calloc(sizeof(char), (count + 1))))
 		return (0);
-	}
-
-	str[i--] = 0;
-	if (nb == 0)
-	{
-		str = ft_calloc(2, sizeof(char));
-		str[0] = 48;
-	}
 	if (nb < 0)
 	{
+		nb *= -1;
 		str[0] = '-';
-		nb = nb * -1;
+		i++;
 	}
-	while (nb > 0)
+	while (count > i)
 	{
-		str[i--] = nb % 10 + '0';
-		nb = nb / 10;
+		count--;
+		str[count] = (nb % 10) + '0';
+		nb /= 10;
 	}
 	return (str);
 }
