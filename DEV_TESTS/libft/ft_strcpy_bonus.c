@@ -6,7 +6,7 @@
 /*   By: julcarva <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 18:43:52 by julcarva          #+#    #+#             */
-/*   Updated: 2021/02/23 18:43:54 by julcarva         ###   ########.fr       */
+/*   Updated: 2021/02/24 18:10:46 by julcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char		*ft_strcpy(char *dst, const char *src)
 	{
 		dst[i] = src[i];
 		i++;
-		dst[i] = '\0';
 	}
+	dst[i] = '\0';
 	return (dst);
 }

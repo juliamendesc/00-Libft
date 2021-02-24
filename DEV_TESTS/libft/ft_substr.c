@@ -6,7 +6,7 @@
 /*   By: julcarva <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 16:25:37 by julcarva          #+#    #+#             */
-/*   Updated: 2021/02/17 19:58:06 by julcarva         ###   ########.fr       */
+/*   Updated: 2021/02/24 18:41:29 by julcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	if (!(s))
 		return (NULL);
-
 	if ((start >= ft_strlen(s)) || (len == 0))
 		return (ft_calloc(1, sizeof(char)));
 	if (len > (ft_strlen(s) - start))

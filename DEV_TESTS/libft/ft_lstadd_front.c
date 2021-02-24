@@ -6,7 +6,7 @@
 /*   By: julcarva <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 19:30:49 by julcarva          #+#    #+#             */
-/*   Updated: 2021/02/23 19:30:50 by julcarva         ###   ########.fr       */
+/*   Updated: 2021/02/24 18:27:55 by julcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-
 	if (new != NULL)
 	{
 		new->next = *lst;

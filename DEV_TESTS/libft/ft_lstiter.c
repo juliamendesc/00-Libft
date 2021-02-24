@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julcarva <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/17 13:35:14 by julcarva          #+#    #+#             */
-/*   Updated: 2021/02/24 17:42:07 by julcarva         ###   ########.fr       */
+/*   Created: 2021/02/24 15:41:03 by julcarva          #+#    #+#             */
+/*   Updated: 2021/02/24 18:29:31 by julcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	size_t srclen;
-
-	if (!src)
-		return (0);
-	srclen = ft_strlen(src);
-	if (srclen + 1 < size)
-		ft_memcpy(dest, src, srclen + 1);
-	else if (size != 0)
+	if (lst == NULL || f == NULL)
+		return ;
+	while (lst)
 	{
-		ft_memcpy(dest, src, size - 1);
+		f(lst->content);
+		lst = lst->next;
 	}
-	dest[size - 1] = '\0';
-	return (srclen);
 }

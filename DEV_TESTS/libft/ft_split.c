@@ -6,7 +6,7 @@
 /*   By: julcarva <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 15:00:22 by julcarva          #+#    #+#             */
-/*   Updated: 2021/02/23 15:40:08 by julcarva         ###   ########.fr       */
+/*   Updated: 2021/02/24 18:48:51 by julcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,18 @@ static int	ft_cntwrd(char const *str, char c)
 	return (count);
 }
 
-char	**ft_split(char const *s, char c)
+char		**ft_split(char const *s, char c)
 {
 	int		i;
 	int		j;
 	int		k;
 	char	**tab;
 
+	if (!s)
+		return (NULL);
 	i = 0;
 	k = 0;
-	tab = (char **)calloc(sizeof(char *), (ft_cntwrd(s, c)) + 1);
-	if (tab == NULL)
+	if (!(tab = (char **)ft_calloc(sizeof(char *), (ft_cntwrd(s, c)) + 1)))
 		return (NULL);
 	while (s[i])
 	{
@@ -56,6 +57,5 @@ char	**ft_split(char const *s, char c)
 			k++;
 		}
 	}
-	tab[k] = NULL;
 	return (tab);
 }

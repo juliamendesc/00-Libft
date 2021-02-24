@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julcarva <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/17 13:35:14 by julcarva          #+#    #+#             */
-/*   Updated: 2021/02/24 17:42:07 by julcarva         ###   ########.fr       */
+/*   Created: 2021/02/24 15:48:13 by julcarva          #+#    #+#             */
+/*   Updated: 2021/02/24 18:37:03 by julcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	size_t srclen;
+	t_list	*current;
+	t_list	*head;
 
-	if (!src)
-		return (0);
-	srclen = ft_strlen(src);
-	if (srclen + 1 < size)
-		ft_memcpy(dest, src, srclen + 1);
-	else if (size != 0)
+	if (!lst || !f)
+		return (NULL);
+	if (!(head = ft_lstnew((*f)(lst->content))))
+		return (NULL);
+	current = head;
+	while (lst->next)
 	{
-		ft_memcpy(dest, src, size - 1);
+		lst = lst->next;
+		current->next = ft_lstnew((*f)(lst->content));
+		if (!current->next)
+		{
+			ft_lstclear(&current, del);
+			return (NULL);
+		}
+		current = current->next;
 	}
-	dest[size - 1] = '\0';
-	return (srclen);
+	return (head);
 }

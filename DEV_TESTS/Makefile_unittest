@@ -6,7 +6,7 @@
 #    By: julcarva <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/17 13:44:20 by julcarva          #+#    #+#              #
-#    Updated: 2021/02/24 18:52:54 by julcarva         ###   ########.fr        #
+#    Updated: 2021/02/24 18:19:53 by julcarva         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,3 +70,7 @@ re:			fclean all
 rebonus:	fclean bonus
 
 .PHONY:		all clean fclean re bonus rebonus
+
+so:
+	$(CC) -fPIC $(CFLAGS) $(SRC)
+	gcc -shared -o libft.so $(OBJ)

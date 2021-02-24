@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strstr_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julcarva <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/17 13:35:14 by julcarva          #+#    #+#             */
-/*   Updated: 2021/02/24 17:42:07 by julcarva         ###   ########.fr       */
+/*   Created: 2021/02/24 18:17:34 by julcarva          #+#    #+#             */
+/*   Updated: 2021/02/24 18:37:20 by julcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+char	*ft_strstr(const char *haystack, const char *needle)
 {
-	size_t srclen;
+	size_t	i;
+	size_t	j;
 
-	if (!src)
-		return (0);
-	srclen = ft_strlen(src);
-	if (srclen + 1 < size)
-		ft_memcpy(dest, src, srclen + 1);
-	else if (size != 0)
+	i = 0;
+	if (needle[0] == '\0')
+		return ((char *)haystack);
+	while (haystack[i] != '\0')
 	{
-		ft_memcpy(dest, src, size - 1);
+		j = 0;
+		while (haystack[i + j] == needle[j])
+		{
+			if (needle[j + 1] == '\0')
+				return ((char *)&haystack[i]);
+			j++;
+		}
+		i++;
 	}
-	dest[size - 1] = '\0';
-	return (srclen);
+	return (NULL);
 }
