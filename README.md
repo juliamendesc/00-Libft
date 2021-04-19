@@ -7,8 +7,8 @@ Many of the functions were already done during the piscine. However, this was a 
 to update them, shrinking the code and making them more efficient. It was also the first contact
 with lists.
 
-Main tester used (detects memory leaks):
+Main tester used:
 
-Tripouille - Libft Tester: https://github.com/Tripouille/libftTester <br>
-Romeumc - Libft Unit Test: https://github.com/romeumc/libft-unit-test <br>
-Ska42 - Libft War Machine: https://github.com/ska42/libft-war-machine <br>
+Tripouille - Libft Tester: https://github.com/Tripouille/libftTester (detects memory leaks)<br>
+Ska42 - Libft War Machine: https://github.com/ska42/libft-war-machine (checks functions protections)<br>
+Romeumc - Libft Unit Test: https://github.com/romeumc/libft-unit-test (good for some bonus functions)<br>
