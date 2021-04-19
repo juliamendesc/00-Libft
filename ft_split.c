@@ -6,15 +6,11 @@
 /*   By: julcarva <julcarva@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 15:00:22 by julcarva          #+#    #+#             */
-/*   Updated: 2021/02/22 11:21:28 by julcarva         ###   ########.fr       */
+/*   Updated: 2021/02/22 11:24:04 by julcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-/*
-* First, we count how many divisions there are between strings
-*/
 
 static int ft_div_counter(char const *s, char c)
 {
@@ -34,12 +30,7 @@ static int ft_div_counter(char const *s, char c)
 	return (counter);
 }
 
-/*
-* Then, we segment the 's' array into parts considering the char that divides.
-* A string is created considering the length between separators.
-*/
-
-static char *ft_segmentator(char const *s, char c, int i)
+static char *ft_segment_str(char const *s, char c, int i)
 {
 	int j;
 	int k;
@@ -64,13 +55,6 @@ static char *ft_segmentator(char const *s, char c, int i)
 	return (seg_string);
 }
 
-/*
-* ft_strlen(s) will be the maximum len possible for the i. The division counter indicates
-* how many pointers we need to create to allocate the strings.
-* The split will take place as long as i is smaller than the total length AND within the
-* number of divisions.
-*/
-
 char **ft_split(char const *s, char c)
 {
 	char **tab;
@@ -89,9 +73,9 @@ char **ft_split(char const *s, char c)
 	j = 0;
 	while (i <= (int)ft_strlen(s) && ft_div_counter(s, c))
 	{
-		if (ft_strlen(ft_segmentator(s, c, i)))
+		if (ft_strlen(ft_segment_str(s, c, i)))
 		{
-			if (!(tab[j] = ft_segmentator(s, c, i)))
+			if (!(tab[j] = ft_segment_str(s, c, i)))
 			{
 				while (*tab)
 					free(*tab);
