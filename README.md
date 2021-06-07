@@ -8,7 +8,7 @@ to update them, shrinking the code and making them more efficient. It was also t
 with lists.
 
 
-<b>Final Result:</b> 115/115 (with bonus)
+<b>Final Result:</b> 115 (with bonus)
 
 <b>Testers:</b><br>
 
