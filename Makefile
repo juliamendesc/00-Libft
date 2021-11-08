@@ -18,7 +18,7 @@ RM		=	rm -f
 
 CFLAGS	=	-Wall -Wextra -Werror -I includes/
 
-HEADER = ./includes/libft.h
+HEADER = ./includes/libft.h ./includes/get_next_line.h
 
 FREE = ft_free_array
 
@@ -28,7 +28,7 @@ IS = ft_isalnum ft_isalpha ft_isascii ft_isdigit ft_isprint ft_isallstringdigit 
 LST_ORIGINAL = ft_lstadd_back ft_lstadd_front ft_lstclear ft_lstdelone \
 				ft_lstiter ft_lstlast ft_lstmap ft_lstnew ft_lstsize
 
-
+	# stack Variables #
 STACK_PUSH_SWAP = ft_stack_get_position ft_stack_get ft_stack_has_bigger \
 ft_stack_last ft_stack_print ft_stack_remove ft_stackaddback ft_stackaddfront \
 ft_stackclear ft_stackdup ft_stackfind ft_stackmerge ft_stacknew ft_stacksize \
@@ -49,6 +49,9 @@ STRING = ft_split2 ft_strchr ft_strdup ft_strjoinchr_bonus ft_strlcpy \
 
 TO = ft_atoi ft_itoa ft_tolower ft_toupper ft_atoll
 
+	# get_next_line Variables #
+GNL			=	get_next_line.c
+
 SRC = $(addsuffix .c, $(addprefix sources/free/, $(FREE))) \
 	$(addsuffix .c, $(addprefix sources/is/, $(IS))) \
 	$(addsuffix .c, $(addprefix sources/lst/original/, $(LST_ORIGINAL))) \
@@ -57,7 +60,8 @@ SRC = $(addsuffix .c, $(addprefix sources/free/, $(FREE))) \
 	$(addsuffix .c, $(addprefix sources/mem/, $(MEM))) \
 	$(addsuffix .c, $(addprefix sources/put/, $(PUT))) \
 	$(addsuffix .c, $(addprefix sources/string/, $(STRING))) \
-	$(addsuffix .c, $(addprefix sources/to/, $(TO)))
+	$(addsuffix .c, $(addprefix sources/to/, $(TO))) \
+	$(addsuffix .c, $(addprefix get_next_line/, $(GNL)))
 
 OBJS	=	${SRCS:.c=.o}
 
