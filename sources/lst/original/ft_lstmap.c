@@ -1,37 +1,26 @@
 
 #include "../../../includes/libft.h"
 
-static void clear_both(t_list **lst, t_list **new_lst, void (*del)(void *))
-{
-	ft_lstclear(lst, del);
-	ft_lstclear(new_lst, del);
-}
-
 t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list *new_lst;
-	t_list *new_elem;
+	t_list *current;
+	t_list *head;
 
 	if (!lst || !f)
 		return (NULL);
-	new_elem = ft_lstnew(f(lst->content));
-	if (new_elem == NULL)
-	{
-		ft_lstclear(&lst, del);
+	if (!(head = ft_lstnew((*f)(lst->content))))
 		return (NULL);
-	}
-	new_lst = new_elem;
-	lst = lst->next;
-	while (lst)
+	current = head;
+	while (lst->next)
 	{
-		new_elem = ft_lstnew(f(lst->content));
-		if (new_elem == NULL)
-		{
-			clear_both(&lst, &new_lst, del);
-			break;
-		}
 		lst = lst->next;
-		ft_lstadd_back(&new_lst, new_elem);
+		current->next = ft_lstnew((*f)(lst->content));
+		if (!current->next)
+		{
+			ft_lstclear(&current, del);
+			return (NULL);
+		}
+		current = current->next;
 	}
-	return (new_lst);
+	return (head);
 }

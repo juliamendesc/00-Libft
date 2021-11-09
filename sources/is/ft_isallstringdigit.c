@@ -25,5 +25,5 @@ int ft_isallstringdigit(char *str)
 			return (0);
 		i++;
 	}
-	return (a);
+	return (j);
 }

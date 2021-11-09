@@ -5,16 +5,13 @@ t_list *ft_lstnew(void *content)
 {
 	t_list *new;
 
-	new = malloc(sizeof(t_list));
-	if (new == NULL)
+	new = (t_list *)malloc(sizeof(t_list));
+	if (!new)
 	{
 		free(new);
 		return (NULL);
 	}
-	if (new)
-	{
-		new->content = content;
-		new->next = NULL;
-	}
+	new->content = content;
+	new->next = NULL;
 	return (new);
 }
