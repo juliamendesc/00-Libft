@@ -88,7 +88,7 @@ void ft_lstclear_ps(t_stacks **lst);
 void ft_stack_sort(t_stacks **lst);
 void lst_print_norm(char *msg, t_stacks *stack);
 void lst_print(char *msg, t_stacks *lst);
-void ft_stack_remove(t_stacks **lst);
+void ft_stack_remove_item(t_stacks **lst);
 t_stacks *ft_stack_last(t_stacks *lst);
 t_stacks *ft_lstdup_ps(t_stacks *lst);
 t_stacks *ft_merge_sort(t_stacks *first, t_stacks *second);
