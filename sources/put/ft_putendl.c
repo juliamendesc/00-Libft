@@ -1,4 +1,4 @@
-#include "libft.h"
+#include "../../includes/libft.h"
 
 /*
 ** Outputs the string str to the standard output followed by a ’\n’.

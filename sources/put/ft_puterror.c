@@ -1,4 +1,4 @@
-#include "libft.h"
+#include "../../includes/libft.h"
 
 /*
 ** Outputs the string msg to the standard output followed by an exit of the

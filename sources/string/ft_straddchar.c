@@ -23,7 +23,7 @@ char *ft_straddchar(char *str, char c)
 	if (!c)
 		return (NULL);
 	if (!str)
-		return (ft_straddc_first(c));
+		return (ft_straddchar_first(c));
 	add = (char *)malloc(sizeof(char) * (ft_strlen(str) + 2));
 	if (!add)
 	{
