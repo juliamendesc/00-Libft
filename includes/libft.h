@@ -77,11 +77,10 @@ typedef struct s_stacks
 	struct s_stacks *previous;
 } t_stacks;
 
-int ft_stack_find(t_stacks *lst, int value);
+int ft_stack_find_index(t_stacks *lst, int value);
 int ft_stack_get_position(t_stacks *lst, int position);
 int ft_lstsize_ps(t_stacks *lst);
 int ft_stack_has_bigger(t_stacks *lst, int value);
-int ft_stack_get(t_stacks *lst, int position);
 void ft_lstadd_back_ps(t_stacks **lst, t_stacks *new);
 void ft_lstadd_front_ps(t_stacks **lst, t_stacks *new);
 void ft_lstclear_ps(t_stacks **lst);

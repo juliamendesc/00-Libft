@@ -1,6 +1,12 @@
 #include "../../../includes/libft.h"
 
-int ft_stack_find(t_stacks *lst, int value)
+/*
+** gets the position (index) in a determined int 
+** in linked list or returns the min int possible 
+** (for control purposes).
+*/
+
+int ft_stack_find_index(t_stacks *lst, int value)
 {
 	int i;
 
