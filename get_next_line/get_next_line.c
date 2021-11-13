@@ -6,24 +6,24 @@
 /*   By: julcarva <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 18:16:09 by julcarva          #+#    #+#             */
-/*   Updated: 2021/04/16 18:16:13 by julcarva         ###   ########.fr       */
+/*   Updated: 2021/11/13 16:26:46 by julcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/get_next_line.h"
 
-static void free_and_null(char **ptr)
+static void	free_and_null(char **ptr)
 {
 	if (!ptr || !*ptr)
-		return;
+		return ;
 	free(*ptr);
 	*ptr = NULL;
 }
 
-static void copy_excess_buffer(char **buffer, long long j)
+static void	copy_excess_buffer(char **buffer, long long j)
 {
-	long long i;
-	char tmp[ARG_MAX];
+	long long	i;
+	char		tmp[ARG_MAX];
 
 	i = 0;
 	if (buffer[0][j] == '\0')
@@ -38,11 +38,11 @@ static void copy_excess_buffer(char **buffer, long long j)
 	}
 }
 
-static int buffer_to_line(char **line, char **buffer)
+static int	buffer_to_line(char **line, char **buffer)
 {
-	long long i;
-	long long j;
-	char tmp[ARG_MAX];
+	long long	i;
+	long long	j;
+	char		tmp[ARG_MAX];
 
 	i = 0;
 	j = 0;
@@ -65,9 +65,9 @@ static int buffer_to_line(char **line, char **buffer)
 	return (NOT_ENDLINE);
 }
 
-static void read_and_copy(int fd, char **buffer, char *tmp)
+static void	read_and_copy(int fd, char **buffer, char *tmp)
 {
-	int ret[2];
+	int	ret[2];
 
 	ret[0] = NOT_ENDLINE;
 	ret[1] = read(fd, tmp, BUFFER_SIZE);
@@ -78,11 +78,11 @@ static void read_and_copy(int fd, char **buffer, char *tmp)
 	}
 }
 
-int get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
-	static char *buffer[OPEN_MAX];
-	char tmp[ARG_MAX];
-	int ret[2];
+	static char	*buffer[OPEN_MAX];
+	char		tmp[ARG_MAX];
+	int			ret[2];
 
 	if (read(fd, 0, 0) == -1 || fd < 0 || !line || BUFFER_SIZE < 1)
 		return (ERR_HAPPENED);
@@ -94,7 +94,7 @@ int get_next_line(int fd, char **line)
 		{
 			read_and_copy(fd, &*buffer, tmp);
 			if (ret[1] < 0)
-				break;
+				break ;
 		}
 		if (buffer[fd] != 0)
 			ret[1] = ft_strlen(buffer[fd]);
