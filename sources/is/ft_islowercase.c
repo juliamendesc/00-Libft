@@ -6,13 +6,13 @@
 /*   By: julcarva <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 17:59:49 by julcarva          #+#    #+#             */
-/*   Updated: 2021/02/24 18:30:02 by julcarva         ###   ########.fr       */
+/*   Updated: 2021/11/13 16:06:30 by julcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/libft.h"
 
-int ft_islowercase(int c)
+int	ft_islowercase(int c)
 {
 	return (c >= 'a' && c <= 'z');
 }

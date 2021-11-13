@@ -6,15 +6,15 @@
 /*   By: julcarva <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 15:31:42 by julcarva          #+#    #+#             */
-/*   Updated: 2021/02/17 16:15:48 by julcarva         ###   ########.fr       */
+/*   Updated: 2021/11/13 16:04:54 by julcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
 
-void *ft_calloc(size_t nelem, size_t elsize)
+void	*ft_calloc(size_t nelem, size_t elsize)
 {
-	char *ptr;
+	char	*ptr;
 
 	if (nelem == 0 || elsize == 0)
 	{

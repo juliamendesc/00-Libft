@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_stackmerge.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: julcarva <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/13 16:12:53 by julcarva          #+#    #+#             */
+/*   Updated: 2021/11/13 16:12:59 by julcarva         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../../includes/libft.h"
 
 /*
@@ -9,7 +21,7 @@
 ** recursively checked.
 */
 
-t_stacks *ft_merge_sort(t_stacks *first, t_stacks *second)
+t_stacks	*ft_merge_sort(t_stacks *first, t_stacks *second)
 {
 	if (!first)
 		return (second);

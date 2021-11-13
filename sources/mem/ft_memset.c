@@ -6,15 +6,15 @@
 /*   By: julcarva <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 14:57:44 by julcarva          #+#    #+#             */
-/*   Updated: 2021/02/17 14:58:46 by julcarva         ###   ########.fr       */
+/*   Updated: 2021/11/13 16:03:09 by julcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
 
-void *ft_memset(void *s, int c, size_t n)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	char *ptr;
+	char	*ptr;
 
 	ptr = (char *)s;
 	while (n > 0)

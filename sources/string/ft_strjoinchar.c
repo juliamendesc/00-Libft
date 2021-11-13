@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strjoinchar.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: julcarva <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/13 15:47:03 by julcarva          #+#    #+#             */
+/*   Updated: 2021/11/13 15:47:19 by julcarva         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/libft.h"
 
-char *ft_strjoinchar(char *s1, char s2)
+char	*ft_strjoinchar(char *s1, char s2)
 {
-	int i;
-	char *temp;
-	int len;
+	int		i;
+	char	*temp;
+	int		len;
 
 	i = 0;
 	if (!s1 || !s2)

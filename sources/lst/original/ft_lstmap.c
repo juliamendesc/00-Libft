@@ -1,14 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: julcarva <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/13 16:09:11 by julcarva          #+#    #+#             */
+/*   Updated: 2021/11/13 16:09:40 by julcarva         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../../../includes/libft.h"
 
-t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list *current;
-	t_list *head;
+	t_list	*current;
+	t_list	*head;
 
 	if (!lst || !f)
 		return (NULL);
-	if (!(head = ft_lstnew((*f)(lst->content))))
+	head = ft_lstnew((*f)(lst->content));
+	if (!head)
 		return (NULL);
 	current = head;
 	while (lst->next)

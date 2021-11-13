@@ -6,7 +6,7 @@
 /*   By: julcarva <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 18:11:45 by julcarva          #+#    #+#             */
-/*   Updated: 2021/02/24 18:14:36 by julcarva         ###   ########.fr       */
+/*   Updated: 2021/11/13 15:49:22 by julcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int	ft_strcmp(const char *s1, const char *s2)
 	unsigned char	*a;
 	unsigned char	*b;
 
-	a = (unsigned char*)s1;
-	b = (unsigned char*)s2;
+	a = (unsigned char *)s1;
+	b = (unsigned char *)s2;
 	i = 0;
 	while (a[i] == b[i] && a[i] != '\0' && b[i] != '\0')
 		i++;

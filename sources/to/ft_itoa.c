@@ -6,7 +6,7 @@
 /*   By: julcarva <julcarva@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 18:33:20 by julcarva          #+#    #+#             */
-/*   Updated: 2021/02/19 21:06:24 by julcarva         ###   ########.fr       */
+/*   Updated: 2021/11/13 16:24:34 by julcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 // transforms integer to string
 
-static int ft_digit_count(long int i)
+static int	ft_digit_count(long int i)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	if (i < 0)
@@ -32,20 +32,31 @@ static int ft_digit_count(long int i)
 	return (count);
 }
 
-char *ft_itoa(int n)
+static int	free_and_return(char *str)
 {
-	char *str;
-	int i;
-	long int nb;
+	free(str);
+	return (0);
+}
+
+static char	*create_string(int len)
+{
+	char	*str;
+
+	str = malloc(len * sizeof(char) + 1);
+	if (!str)
+		free_and_return(str);
+	return (str);
+}
+
+char	*ft_itoa(int n)
+{
+	char		*str;
+	int			i;
+	long int	nb;
 
 	nb = n;
 	i = ft_digit_count(nb);
-	if (!(str = malloc(i * sizeof(char) + 1)))
-	{
-		free(str);
-		return (0);
-	}
-
+	str = create_string(i);
 	str[i--] = 0;
 	if (nb == 0)
 	{

@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_straddchar.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: julcarva <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/13 15:49:36 by julcarva          #+#    #+#             */
+/*   Updated: 2021/11/13 15:49:51 by julcarva         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/libft.h"
 
-char *ft_straddchar_first(char c)
+char	*ft_straddchar_first(char c)
 {
-	char *add;
+	char	*add;
 
 	add = (char *)malloc(sizeof(char) * 2);
 	if (!add)
@@ -15,10 +27,10 @@ char *ft_straddchar_first(char c)
 	return (add);
 }
 
-char *ft_straddchar(char *str, char c)
+char	*ft_straddchar(char *str, char c)
 {
-	char *add;
-	int i;
+	char	*add;
+	int		i;
 
 	if (!c)
 		return (NULL);

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_stacksplit.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: julcarva <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/13 16:11:51 by julcarva          #+#    #+#             */
+/*   Updated: 2021/11/13 16:12:00 by julcarva         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../../includes/libft.h"
 
 /*
@@ -6,11 +18,11 @@
 ** the value of the second half (first->next)
 */
 
-t_stacks *ft_stack_split(t_stacks *head)
+t_stacks	*ft_stack_split(t_stacks *head)
 {
-	t_stacks *first;
-	t_stacks *second;
-	t_stacks *temporary;
+	t_stacks	*first;
+	t_stacks	*second;
+	t_stacks	*temporary;
 
 	first = head;
 	second = head->next;

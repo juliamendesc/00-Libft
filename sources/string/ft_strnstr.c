@@ -6,16 +6,16 @@
 /*   By: julcarva <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 14:42:44 by julcarva          #+#    #+#             */
-/*   Updated: 2021/02/17 14:43:09 by julcarva         ###   ########.fr       */
+/*   Updated: 2021/11/13 15:42:17 by julcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
 
-char *ft_strnstr(const char *s, const char *find, size_t n)
+char	*ft_strnstr(const char *s, const char *find, size_t n)
 {
-	size_t i;
-	size_t j;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	if (*find == '\0')

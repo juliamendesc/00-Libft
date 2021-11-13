@@ -6,15 +6,15 @@
 /*   By: julcarva <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 13:33:30 by julcarva          #+#    #+#             */
-/*   Updated: 2021/02/17 13:33:31 by julcarva         ###   ########.fr       */
+/*   Updated: 2021/11/13 16:03:25 by julcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
 
-void *ft_memmove(void *dest, const void *src, size_t n)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	char *tmp;
+	char	*tmp;
 
 	tmp = (char *)malloc(sizeof(char) * n);
 	if (tmp == NULL)

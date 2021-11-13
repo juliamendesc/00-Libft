@@ -6,13 +6,13 @@
 /*   By: julcarva <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 18:00:25 by julcarva          #+#    #+#             */
-/*   Updated: 2021/02/24 18:30:07 by julcarva         ###   ########.fr       */
+/*   Updated: 2021/11/13 16:06:19 by julcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/libft.h"
 
-int ft_isuppercase(int c)
+int	ft_isuppercase(int c)
 {
 	return (c >= 'A' && c <= 'Z');
 }

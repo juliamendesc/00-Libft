@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_stack_remove.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: julcarva <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/13 16:14:11 by julcarva          #+#    #+#             */
+/*   Updated: 2021/11/13 16:14:20 by julcarva         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../../includes/libft.h"
 
 /*
@@ -8,12 +20,12 @@
 ** item will point to current->previous as previous item.
 */
 
-void ft_stack_remove_item(t_stacks **lst)
+void	ft_stack_remove_item(t_stacks **lst)
 {
-	t_stacks *temporary;
+	t_stacks	*temporary;
 
 	if (!lst)
-		return;
+		return ;
 	temporary = *lst;
 	if (temporary->next)
 		temporary->next->previous = temporary->previous;

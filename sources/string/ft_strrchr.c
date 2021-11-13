@@ -6,16 +6,16 @@
 /*   By: julcarva <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 13:36:27 by julcarva          #+#    #+#             */
-/*   Updated: 2021/02/17 14:47:36 by julcarva         ###   ########.fr       */
+/*   Updated: 2021/11/13 15:41:57 by julcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
 
-char *ft_strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
-	int i;
-	char a;
+	int		i;
+	char	a;
 
 	a = c;
 	i = ft_strlen(s);

@@ -6,16 +6,16 @@
 /*   By: julcarva <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 20:29:42 by julcarva          #+#    #+#             */
-/*   Updated: 2021/02/18 14:58:33 by julcarva         ###   ########.fr       */
+/*   Updated: 2021/11/13 15:41:09 by julcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
 
-char *ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t start;
-	size_t end;
+	size_t	start;
+	size_t	end;
 
 	if (!s1 || !set)
 		return (NULL);
