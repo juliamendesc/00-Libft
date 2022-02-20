@@ -59,7 +59,7 @@ STACK_PUSH_SWAP = 	./sources/lst/stack_push_swap/ft_stack_get_position.c \
 					./sources/lst/stack_push_swap/ft_stacksplit.c
 STACK_PUSH_SWAP_O	=	$(STACK_PUSH_SWAP:.c=.o)
 
-MATH 			= 	./sources/math/ft_abs.c
+MATH 			= 	./sources/math/ft_abs.c ./sources/math/ft_abs_float.c
 MATH_O			=	$(MATH:.c=.o)
 
 MEM 			= 	./sources/mem/ft_bzero.c ./sources/mem/ft_calloc.c \
@@ -85,7 +85,8 @@ STRING 			= 	./sources/string/ft_split.c ./sources/string/ft_straddchar.c \
 					./sources/string/ft_strncpy.c ./sources/string/ft_strndup.c \
 					./sources/string/ft_strnlen.c ./sources/string/ft_strnstr.c \
 					./sources/string/ft_strrchr.c ./sources/string/ft_strtrim.c \
-					./sources/string/ft_substr.c
+					./sources/string/ft_substr.c ./sources/string/ft_strsplit.c \
+					./sources/string/ft_wdcounter.c
 STRING_O		=	$(STRING:.c=.o)
 
 TO 				= 	./sources/to/ft_atoi.c ./sources/to/ft_itoa.c ./sources/to/ft_tolower.c \
@@ -94,7 +95,7 @@ TO_O			=	$(YO:.c=.o)
 
 	# get_next_line Variables #
 GNL_DIR		=	./get_next_line
-GNL			=	$(GNL_DIR)/get_next_line.c 
+GNL			=	$(GNL_DIR)/get_next_line.c
 GNL_O		=	$(GNL:.c=.o)
 
 	# Includes flag for compilation #
@@ -118,8 +119,8 @@ _INFO		=	[$(YELLOW)INFO$(RESET)]
 
 all: $(NAME)
 
-$(NAME): $(OBJ) 
-	@ $(CLIB) $(NAME) $(OBJ) 
+$(NAME): $(OBJ)
+	@ $(CLIB) $(NAME) $(OBJ)
 
 list: bonus
 bonus: clean $(LIST_O)
