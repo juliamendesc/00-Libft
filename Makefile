@@ -59,7 +59,8 @@ STACK_PUSH_SWAP = 	./sources/lst/stack_push_swap/ft_stack_get_position.c \
 					./sources/lst/stack_push_swap/ft_stacksplit.c
 STACK_PUSH_SWAP_O	=	$(STACK_PUSH_SWAP:.c=.o)
 
-MATH 			= 	./sources/math/ft_abs.c ./sources/math/ft_abs_float.c
+MATH 			= 	./sources/math/ft_abs.c ./sources/math/ft_abs_float.c \
+							./sources/math/ft_min.c
 MATH_O			=	$(MATH:.c=.o)
 
 MEM 			= 	./sources/mem/ft_bzero.c ./sources/mem/ft_calloc.c \

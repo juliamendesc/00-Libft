@@ -64,7 +64,7 @@ void ft_lstiter(t_list *lst, void (*f)(void *));
 t_list *ft_lstnew(void *content);
 t_list *ft_lstlast(t_list *lst);
 t_list *ft_lstmap(t_list *lst, void *(*f)(void *),
-				  void (*del)(void *));
+									void (*del)(void *));
 
 /*
 ** Push Swap List
@@ -100,6 +100,7 @@ t_stacks *ft_stack_split(t_stacks *head);
 
 int ft_abs(int i);
 float ft_abs_float(float i);
+int ft_min(int a, int b);
 
 /*
 ** Mem
