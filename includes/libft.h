@@ -100,7 +100,7 @@ t_stacks *ft_stack_split(t_stacks *head);
 
 int ft_abs(int i);
 float ft_abs_float(float i);
-int ft_min(int a, int b);
+float ft_min(float a, float b);
 
 /*
 ** Mem

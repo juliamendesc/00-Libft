@@ -1,6 +1,6 @@
 #include "../../includes/libft.h"
 
-int ft_min(int a, int b)
+float ft_min(float a, float b)
 {
 	if (a < b)
 		return (a);
