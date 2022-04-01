@@ -91,7 +91,7 @@ STRING 			= 	./sources/string/ft_split.c ./sources/string/ft_straddchar.c \
 STRING_O		=	$(STRING:.c=.o)
 
 TO 				= 	./sources/to/ft_atoi.c ./sources/to/ft_itoa.c ./sources/to/ft_tolower.c \
-					./sources/to/ft_toupper.c ./sources/to/ft_atoll.c
+					./sources/to/ft_toupper.c ./sources/to/ft_atoll.c ./sources/to/ft_atoi_base.c
 TO_O			=	$(YO:.c=.o)
 
 	# get_next_line Variables #

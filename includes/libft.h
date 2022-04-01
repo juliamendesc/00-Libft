@@ -167,5 +167,6 @@ int ft_tolower(int c);
 int ft_atoi(const char *str);
 char *ft_itoa(int n);
 long long ft_atoll(const char *str);
+int ft_atoi_base(char *str, char *base);
 
 #endif
