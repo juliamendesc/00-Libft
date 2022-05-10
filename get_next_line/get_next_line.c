@@ -12,95 +12,67 @@
 
 #include "../includes/get_next_line.h"
 
-static void	free_and_null(char **ptr)
+static int ft_saveline(char **save, char **line)
 {
-	if (!ptr || !*ptr)
-		return ;
-	free(*ptr);
-	*ptr = NULL;
-}
+	int len;
+	char *temp;
 
-static void	copy_excess_buffer(char **buffer, long long j)
-{
-	long long	i;
-	char		tmp[ARG_MAX];
-
-	i = 0;
-	if (buffer[0][j] == '\0')
-		free_and_null(&*buffer);
+	len = 0;
+	temp = NULL;
+	while ((*save)[len] != '\n' && (*save)[len] != '\0')
+		len++;
+	if ((*save)[len] == '\n')
+	{
+		*line = ft_substr(*save, 0, len);
+		temp = ft_strdup(&((*save)[len + 1]));
+		free(*save);
+		*save = temp;
+	}
 	else
 	{
-		while (buffer[0][j] != '\0')
-			tmp[i++] = buffer[0][j++];
-		tmp[i] = '\0';
-		free_and_null(&*buffer);
-		*buffer = ft_strdup(tmp);
+		*line = ft_strdup(*save);
+		free(*save);
+		*save = NULL;
+		return (0);
 	}
+	return (1);
 }
 
-static int	buffer_to_line(char **line, char **buffer)
+static int ft_output(char **save, char **line, int r, int fd)
 {
-	long long	i;
-	long long	j;
-	char		tmp[ARG_MAX];
-
-	i = 0;
-	j = 0;
-	while (line[0][i] != '\0')
+	if (r < 0)
+		return (-1);
+	else if (r == 0 && save[fd] == NULL)
 	{
-		tmp[i] = line[0][i];
-		i++;
+		*line = ft_strdup("");
+		return (0);
 	}
-	free_and_null(&*line);
-	while (buffer[0][j] != '\0' && buffer[0][j] != '\n')
-		tmp[i++] = buffer[0][j++];
-	tmp[i] = '\0';
-	*line = ft_strdup(tmp);
-	if (buffer[0][j] == '\n')
-	{
-		copy_excess_buffer(&*buffer, j + 1);
-		return (FOUND_ENDLINE);
-	}
-	free_and_null(&*buffer);
-	return (NOT_ENDLINE);
+	else
+		return (ft_saveline(&save[fd], line));
 }
 
-static void	read_and_copy(int fd, char **buffer, char *tmp)
+int get_next_line(int fd, char **line)
 {
-	int	ret[2];
+	int r;
+	static char *save[OPEN_MAX];
+	char *temp;
+	char buff[BUFFER_SIZE + 1];
 
-	ret[0] = NOT_ENDLINE;
-	ret[1] = read(fd, tmp, BUFFER_SIZE);
-	if (ret[1] >= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || !line || read(fd, buff, 0) < 0)
+		return (-1);
+	while ((r = read(fd, buff, BUFFER_SIZE)) > 0)
 	{
-		tmp[ret[1]] = '\0';
-		buffer[fd] = ft_strdup(tmp);
-	}
-}
-
-int	get_next_line(int fd, char **line)
-{
-	static char	*buffer[OPEN_MAX];
-	char		tmp[ARG_MAX];
-	int			ret[2];
-
-	if (read(fd, 0, 0) == -1 || fd < 0 || !line || BUFFER_SIZE < 1)
-		return (ERR_HAPPENED);
-	*line = ft_strdup("");
-	ret[0] = NOT_ENDLINE;
-	while (ret[0] == NOT_ENDLINE)
-	{
-		if (buffer[fd] == NULL)
+		buff[r] = '\0';
+		if (save[fd] == NULL)
+			save[fd] = ft_strdup(buff);
+		else
 		{
-			read_and_copy(fd, &*buffer, tmp);
-			if (ret[1] < 0)
-				break ;
+			temp = ft_strjoin(save[fd], buff);
+			free(save[fd]);
+			save[fd] = temp;
 		}
-		if (buffer[fd] != 0)
-			ret[1] = ft_strlen(buffer[fd]);
-		ret[0] = buffer_to_line(&*line, &buffer[fd]);
-		if (ret[1] == 0)
-			return (EOF_REACHED);
+		if (ft_strchr(save[fd], '\n'))
+			break;
 	}
-	return (READLINE_OK);
+	return (ft_output(save, line, r, fd));
 }
