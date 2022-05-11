@@ -15,7 +15,7 @@ NAME		=	libft.a
 
 	# Main (Mandatory) Variables #
 LIBFT_DIR	=	./
-SRC			=	$(STACK) $(GNL) $(LIST) $(FREE) $(IS) $(STACK_PUSH_SWAP) $(MATH) $(MEM) $(PUT) $(STRING) \
+SRC			=	$(STACK) $(GNL) $(GNL_FDF) $(LIST) $(FREE) $(IS) $(STACK_PUSH_SWAP) $(MATH) $(MEM) $(PUT) $(STRING) \
 				$(TO)
 OBJ			=	$(SRC:.c=.o)
 
@@ -87,7 +87,7 @@ STRING 			= 	./sources/string/ft_split.c ./sources/string/ft_straddchar.c \
 					./sources/string/ft_strnlen.c ./sources/string/ft_strnstr.c \
 					./sources/string/ft_strrchr.c ./sources/string/ft_strtrim.c \
 					./sources/string/ft_substr.c ./sources/string/ft_strsplit.c \
-					./sources/string/ft_wdcounter.c
+					./sources/string/ft_wdcounter.c ./sources/string/ft_strnew.c
 STRING_O		=	$(STRING:.c=.o)
 
 TO 				= 	./sources/to/ft_atoi.c ./sources/to/ft_itoa.c ./sources/to/ft_tolower.c \
@@ -99,8 +99,13 @@ GNL_DIR		=	./get_next_line
 GNL			=	$(GNL_DIR)/get_next_line.c
 GNL_O		=	$(GNL:.c=.o)
 
+	# get_next_line_fdf Variables #
+GNL_FDF_DIR		=	./get_next_line_fdf
+GNL_FDF			=	$(GNL_FDF_DIR)/get_next_line_fdf.c $(GNL_FDF_DIR)/get_next_line_utils_fdf.c
+GNL_FDF_O		=	$(GNL:.c=.o)
+
 	# Includes flag for compilation #
-INC			= 	-I$(LIBFT_DIR) -I$(STACK_DIR) -I$(GNL_DIR) -I$(LIST_DIR)
+INC			= 	-I$(LIBFT_DIR) -I$(STACK_DIR) -I$(GNL_DIR) -I$(GNL_FDF_DIR) -I$(LIST_DIR)
 
 	# Compiling Variables #
 CC			=	gcc
@@ -133,13 +138,16 @@ stack: clean $(STACK_O)
 get_next_line: clean $(GNL_O)
 	@ $(CLIB) $(NAME) $(GNL_O)
 
+get_next_line_fdf: clean $(GNL_FDF_O)
+	@ $(CLIB) $(NAME) $(GNL_FDF_O)
+
 gnl: get_next_line
 
 clean:
-	@ $(RM) $(OBJ) $(LIST_O) $(STACK_O) $(GNL_O)
+	@ $(RM) $(OBJ) $(LIST_O) $(STACK_O) $(GNL_O) $(GNL_FDF_O)
 
 fclean:
-	@ $(RM) $(OBJ) $(LIST_O) $(STACK_O) $(GNL_O)
+	@ $(RM) $(OBJ) $(LIST_O) $(STACK_O) $(GNL_O) $(GNL_FDF_O)
 	@ $(RM) $(NAME)
 
 re: fclean all

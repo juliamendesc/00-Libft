@@ -157,6 +157,7 @@ char *ft_strjoinchar(char *s1, char s2);
 char *ft_straddchar(char *str, char c);
 int ft_wdcounter(char const *str, char c);
 char **ft_strsplit(char const *str, char c);
+char *ft_strnew(size_t size);
 
 /*
 ** To
