@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: julcarva <julcarva@student.42lisboa.com    +#+  +:+       +#+         #
+#    By: julcarva <julcarva@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/17 13:44:20 by julcarva          #+#    #+#              #
-#    Updated: 2021/02/19 19:15:10 by julcarva         ###   ########.fr        #
+#    Updated: 2022/05/13 21:43:22 by julcarva         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,7 +60,7 @@ STACK_PUSH_SWAP = 	./sources/lst/stack_push_swap/ft_stack_get_position.c \
 STACK_PUSH_SWAP_O	=	$(STACK_PUSH_SWAP:.c=.o)
 
 MATH 			= 	./sources/math/ft_abs.c ./sources/math/ft_abs_float.c \
-							./sources/math/ft_min.c
+							./sources/math/ft_min.c ./sources/math/ft_max.c
 MATH_O			=	$(MATH:.c=.o)
 
 MEM 			= 	./sources/mem/ft_bzero.c ./sources/mem/ft_calloc.c \
