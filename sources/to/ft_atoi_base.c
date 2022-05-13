@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: julcarva <julcarva@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/13 21:31:15 by julcarva          #+#    #+#             */
+/*   Updated: 2022/05/13 21:31:43 by julcarva         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/libft.h"
 
-int ft_check_base_error(char *str)
+int	ft_check_base_error(char *str)
 {
-	size_t i;
-	size_t c;
+	size_t	i;
+	size_t	c;
 
 	i = 0;
 	if (ft_strlen(str) <= 1)
@@ -24,12 +36,12 @@ int ft_check_base_error(char *str)
 	return (1);
 }
 
-int ft_convert_from_base(char *str, char *base)
+int	ft_convert_from_base(char *str, char *base)
 {
-	size_t i;
-	size_t c;
-	int total;
-	int base_len;
+	size_t	i;
+	size_t	c;
+	int		total;
+	int		base_len;
 
 	i = 0;
 	total = 0;
@@ -45,11 +57,11 @@ int ft_convert_from_base(char *str, char *base)
 	return (total);
 }
 
-int ft_atoi_base(char *str, char *base)
+int	ft_atoi_base(char *str, char *base)
 {
-	int sign;
-	int total;
-	size_t i;
+	int		sign;
+	int		total;
+	size_t	i;
 
 	if (!ft_check_base_error(base))
 		return (0);

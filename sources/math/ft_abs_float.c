@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_abs.c                                           :+:      :+:    :+:   */
+/*   ft_abs_float.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julcarva <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: julcarva <julcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 16:05:22 by julcarva          #+#    #+#             */
-/*   Updated: 2021/11/13 16:05:29 by julcarva         ###   ########.fr       */
+/*   Updated: 2022/05/13 21:44:01 by julcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
 
-float ft_abs_float(float i)
+float	ft_abs_float(float i)
 {
 	if (i < 0)
 		return (i *= -1);

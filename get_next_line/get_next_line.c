@@ -12,10 +12,10 @@
 
 #include "../includes/get_next_line.h"
 
-static int ft_saveline(char **save, char **line)
+static int	ft_saveline(char **save, char **line)
 {
-	int len;
-	char *temp;
+	int		len;
+	char	*temp;
 
 	len = 0;
 	temp = NULL;
@@ -38,7 +38,7 @@ static int ft_saveline(char **save, char **line)
 	return (1);
 }
 
-static int ft_output(char **save, char **line, int r, int fd)
+static int	ft_output(char **save, char **line, int r, int fd)
 {
 	if (r < 0)
 		return (-1);
@@ -51,16 +51,17 @@ static int ft_output(char **save, char **line, int r, int fd)
 		return (ft_saveline(&save[fd], line));
 }
 
-int get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
-	int r;
-	static char *save[OPEN_MAX];
-	char *temp;
-	char buff[BUFFER_SIZE + 1];
+	int			r;
+	static char	*save[OPEN_MAX];
+	char		*temp;
+	char		buff[BUFFER_SIZE + 1];
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || !line || read(fd, buff, 0) < 0)
 		return (-1);
-	while ((r = read(fd, buff, BUFFER_SIZE)) > 0)
+	r = read(fd, buff, BUFFER_SIZE);
+	while (r > 0)
 	{
 		buff[r] = '\0';
 		if (save[fd] == NULL)
@@ -72,7 +73,7 @@ int get_next_line(int fd, char **line)
 			save[fd] = temp;
 		}
 		if (ft_strchr(save[fd], '\n'))
-			break;
+			break ;
 	}
 	return (ft_output(save, line, r, fd));
 }
