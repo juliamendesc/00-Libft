@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_min.c                                           :+:      :+:    :+:   */
+/*   ft_max.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julcarva <julcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/14 10:44:54 by julcarva          #+#    #+#             */
-/*   Updated: 2022/05/14 10:44:55 by julcarva         ###   ########.fr       */
+/*   Created: 2022/05/14 10:44:52 by julcarva          #+#    #+#             */
+/*   Updated: 2022/05/14 10:44:53 by julcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
 
-float ft_min(float a, float b)
+float ft_max(float a, float b)
 {
-	if (a < b)
+	if (a > b)
 		return (a);
 	return (b);
 }
