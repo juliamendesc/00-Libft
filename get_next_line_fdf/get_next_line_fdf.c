@@ -1,6 +1,6 @@
 #include "../includes/get_next_line_fdf.h"
 
-static void free_ptr(void **ptr)
+static void	free_ptr(void **ptr)
 {
 	if (*ptr != NULL)
 	{
@@ -9,11 +9,11 @@ static void free_ptr(void **ptr)
 	}
 }
 
-static void list_to_str(t_list **buffer_lists, int str_len, char *res)
+static void	list_to_str(t_list **buffer_lists, int str_len, char *res)
 {
-	t_list *tmp;
-	char *content;
-	int i;
+	t_list	*tmp;
+	char	*content;
+	int		i;
 
 	i = 0;
 	while (i < str_len)
@@ -34,10 +34,10 @@ static void list_to_str(t_list **buffer_lists, int str_len, char *res)
 	}
 }
 
-char *concat_all(size_t end, int len, t_list **buffer_lists)
+char	*concat_all(size_t end, int len, t_list **buffer_lists)
 {
-	int str_len;
-	char *res;
+	int		str_len;
+	char	*res;
 
 	res = NULL;
 	if (len <= 0)
@@ -55,11 +55,11 @@ char *concat_all(size_t end, int len, t_list **buffer_lists)
 	return (res);
 }
 
-char *read_text(t_list **buffer_lists, t_list *last, int len, int fd)
+char	*read_text(t_list **buffer_lists, t_list *last, int len, int fd)
 {
-	char *content;
-	ssize_t bytes_read;
-	t_list *end;
+	char	*content;
+	ssize_t	bytes_read;
+	t_list	*end;
 
 	content = ft_strchr_fdf(last->content, '\n');
 	if (content != NULL)
@@ -84,10 +84,10 @@ char *read_text(t_list **buffer_lists, t_list *last, int len, int fd)
 	return (read_text(&buffer_lists[0], end, len, fd));
 }
 
-char *get_next_line_fdf(int fd)
+char	*get_next_line_fdf(int fd)
 {
-	static t_list *buffer_lists[MAX_FD + 1];
-	char *result;
+	static t_list	*buffer_lists[MAX_FD + 1];
+	char			*result;
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || fd > MAX_FD)
 		return (NULL);

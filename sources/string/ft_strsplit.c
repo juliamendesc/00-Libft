@@ -1,11 +1,22 @@
-#include "../../includes/libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: julcarva <julcarva@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/17 18:04:53 by julcarva          #+#    #+#             */
+/*   Updated: 2022/05/16 13:37:22 by julcarva         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include <stdlib.h>
+#include "../../includes/libft.h"
 
-static int words(char const *str, char c)
+static int	words(char const *str, char c)
 {
-	int i;
-	int words;
+	int	i;
+	int	words;
 
 	words = 0;
 	i = 0;
@@ -21,12 +32,12 @@ static int words(char const *str, char c)
 	return (words);
 }
 
-static char **memory_giver(char const *str, char c)
+static char	**memory_giver(char const *str, char c)
 {
-	char **res;
-	int letters;
-	int i;
-	int j;
+	char	**res;
+	int		letters;
+	int		i;
+	int		j;
 
 	if ((res = (char **)malloc(sizeof(char *) * (words(str, c) + 1))) == NULL)
 		return (NULL);
@@ -50,13 +61,13 @@ static char **memory_giver(char const *str, char c)
 	return (res);
 }
 
-char **ft_strsplit(char const *str, char c)
+char	**ft_strsplit(char const *str, char c)
 {
-	char **res;
-	int i;
-	int j;
-	int str_number;
-	int size;
+	char	**res;
+	int		i;
+	int		j;
+	int		str_number;
+	int		size;
 
 	if (str == NULL)
 		return (NULL);

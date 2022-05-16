@@ -6,13 +6,13 @@
 /*   By: julcarva <julcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 10:44:52 by julcarva          #+#    #+#             */
-/*   Updated: 2022/05/14 10:44:53 by julcarva         ###   ########.fr       */
+/*   Updated: 2022/05/16 13:33:54 by julcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/libft.h"
 
-float ft_max(float a, float b)
+float	ft_max(float a, float b)
 {
 	if (a > b)
 		return (a);
