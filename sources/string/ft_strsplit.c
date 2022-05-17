@@ -1,11 +1,32 @@
-#include "../../includes/libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: julcarva <julcarva@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/17 18:04:53 by julcarva          #+#    #+#             */
+/*   Updated: 2022/05/17 20:40:19 by julcarva         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include <stdlib.h>
+#include "../../includes/libft.h"
 
-static int words(char const *str, char c)
+void	ft_check_malloc(void *ptr)
 {
-	int i;
-	int words;
+	if (!ptr)
+	{
+		free(ptr);
+		ptr = NULL;
+		ft_puterror("Malloc failed\n", -1);
+	}
+}
+
+static int	words(char const *str, char c)
+{
+	int	i;
+	int	words;
 
 	words = 0;
 	i = 0;
@@ -21,15 +42,13 @@ static int words(char const *str, char c)
 	return (words);
 }
 
-static char **memory_giver(char const *str, char c)
+static char	**memory_giver(char const *str, char c, int i, int j)
 {
-	char **res;
-	int letters;
-	int i;
-	int j;
+	char	**res;
+	int		letters;
 
-	if ((res = (char **)malloc(sizeof(char *) * (words(str, c) + 1))) == NULL)
-		return (NULL);
+	res = (char **)malloc(sizeof(char *) * (words(str, c) + 1));
+	ft_check_malloc(res);
 	i = 0;
 	j = 0;
 	while (str[i])
@@ -43,25 +62,27 @@ static char **memory_giver(char const *str, char c)
 			i++;
 		}
 		if (letters > 0)
-			if ((res[j++] = (char *)malloc(sizeof(char) * letters + 1)) == NULL)
-				return (NULL);
+		{
+			res[j++] = (char *)malloc(sizeof(char) * letters + 1);
+			ft_check_malloc(res);
+		}
 	}
 	res[j] = 0;
 	return (res);
 }
 
-char **ft_strsplit(char const *str, char c)
+char	**ft_strsplit(char const *str, char c)
 {
-	char **res;
-	int i;
-	int j;
-	int str_number;
-	int size;
+	char	**res;
+	int		i;
+	int		j;
+	int		str_number;
+	int		size;
 
 	if (str == NULL)
 		return (NULL);
 	size = words(str, c);
-	res = memory_giver(str, c);
+	res = memory_giver(str, c, i, j);
 	if (res == NULL)
 		return (NULL);
 	i = 0;

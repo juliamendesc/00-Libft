@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_wdcounter.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: julcarva <julcarva@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/17 18:04:53 by julcarva          #+#    #+#             */
+/*   Updated: 2022/05/17 20:04:42 by julcarva         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/libft.h"
 
-int		ft_wdcounter(char const *str, char c)
+int	ft_wdcounter(char const *str, char c)
 {
-	int i;
-	int words;
+	int	i;
+	int	words;
 
 	words = 0;
 	i = 0;

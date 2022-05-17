@@ -6,16 +6,16 @@
 /*   By: julcarva <julcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 20:42:23 by julcarva          #+#    #+#             */
-/*   Updated: 2022/05/13 20:55:40 by julcarva         ###   ########.fr       */
+/*   Updated: 2022/05/16 13:32:15 by julcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_FDF_H
 # define GET_NEXT_LINE_FDF_H
 
-# include	<unistd.h>
-# include	<stdlib.h>
-# include	"libft.h"
+# include <unistd.h>
+# include <stdlib.h>
+# include "libft.h"
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1
