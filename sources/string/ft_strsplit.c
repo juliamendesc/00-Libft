@@ -6,7 +6,7 @@
 /*   By: julcarva <julcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 18:04:53 by julcarva          #+#    #+#             */
-/*   Updated: 2022/05/17 20:40:19 by julcarva         ###   ########.fr       */
+/*   Updated: 2022/05/18 12:05:58 by julcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,6 @@ static char	**memory_giver(char const *str, char c, int i, int j)
 
 	res = (char **)malloc(sizeof(char *) * (words(str, c) + 1));
 	ft_check_malloc(res);
-	i = 0;
-	j = 0;
 	while (str[i])
 	{
 		letters = 0;
@@ -81,12 +79,12 @@ char	**ft_strsplit(char const *str, char c)
 
 	if (str == NULL)
 		return (NULL);
-	size = words(str, c);
-	res = memory_giver(str, c, i, j);
-	if (res == NULL)
-		return (NULL);
 	i = 0;
 	str_number = 0;
+	size = words(str, c);
+	res = memory_giver(str, c, i, str_number);
+	if (res == NULL)
+		return (NULL);
 	while (str_number < size)
 	{
 		while (str[i] == c && str[i])
